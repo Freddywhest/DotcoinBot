@@ -9,3 +9,6 @@ node_modules/
 
 # Ignore the session_user_agents.json file
 session_user_agents.json
+
+# Ignore the Push.bat
+Push.bat
