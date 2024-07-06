@@ -33,6 +33,10 @@ const settings = {
     ? process.env.USE_PROXY_FROM_FILE.toLowerCase() === "true"
     : false,
 
+  AUTO_LUCKY_DOUBLING_COINS: process.env.AUTO_LUCKY_DOUBLING_COINS
+    ? process.env.AUTO_LUCKY_DOUBLING_COINS.toLowerCase() === "true"
+    : true,
+
   RANDOM_TAPS_COUNT:
     process.env.RANDOM_TAPS_COUNT &&
     Array.isArray(JSON.parse(process.env.RANDOM_TAPS_COUNT))
