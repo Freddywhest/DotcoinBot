@@ -202,11 +202,11 @@ class NonSessionTapper {
           access_token_created_time = currentTime;
           await sleep(2);
         }
-
         profile_data = await this.api.get_user_data(http_client);
         if (!profile_data) {
           continue;
         }
+        http_client.defaults.headers["x-telegram-user-Id"] = profile_data?.id;
 
         //Sending Taps
         if (

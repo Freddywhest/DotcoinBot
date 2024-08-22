@@ -270,6 +270,7 @@ class Tapper {
         if (!profile_data) {
           continue;
         }
+        http_client.defaults.headers["x-telegram-user-Id"] = profile_data?.id;
 
         //Sending Taps
         if (
