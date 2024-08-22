@@ -37,6 +37,10 @@ const settings = {
     ? process.env.AUTO_LUCKY_DOUBLING_COINS.toLowerCase() === "true"
     : true,
 
+  USE_QUERY_ID: process.env.USE_QUERY_ID
+    ? process.env.USE_QUERY_ID.toLowerCase() === "true"
+    : false,
+
   RANDOM_TAPS_COUNT:
     process.env.RANDOM_TAPS_COUNT &&
     Array.isArray(JSON.parse(process.env.RANDOM_TAPS_COUNT))

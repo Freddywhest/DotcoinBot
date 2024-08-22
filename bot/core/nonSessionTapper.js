@@ -1,7 +1,6 @@
 const { default: axios } = require("axios");
 const logger = require("../utils/logger");
 const headers = require("./header");
-const { Api } = require("telegram");
 const { SocksProxyAgent } = require("socks-proxy-agent");
 const settings = require("../config/config");
 const app = require("../config/app");
@@ -11,12 +10,11 @@ const sleep = require("../utils/sleep");
 const ApiRequest = require("./api");
 const { UpgradableBoostType } = require("../utils/boost");
 var _ = require("lodash");
-const parser = require("../utils/parser");
 
-class Tapper {
-  constructor(tg_client) {
-    this.session_name = tg_client.session_name;
-    this.tg_client = tg_client.tg_client;
+class NonSessionTapper {
+  constructor(query_id, query_name) {
+    this.session_name = query_name;
+    this.query_id = query_id;
     this.API_URL = app.apiUrl;
     this.session_user_agents = this.#load_session_data();
     this.headers = { ...headers, "user-agent": this.#get_user_agent() };
@@ -37,15 +35,6 @@ class Tapper {
         throw error;
       }
     }
-  }
-
-  #clean_tg_web_data(queryString) {
-    let cleanedString = queryString.replace(/^tgWebAppData=/, "");
-    cleanedString = cleanedString
-      .replace(/&tgWebAppVersion=7\.4&tgWebAppPlatform=ios$/, "")
-      .replace(/&tgWebAppVersion=7\.4&tgWebAppPlatform=android$/, "");
-
-    return cleanedString;
   }
 
   #get_random_user_agent() {
@@ -70,22 +59,6 @@ class Tapper {
       "session_user_agents.json",
       JSON.stringify(session_user_agents, null, 2)
     );
-  }
-
-  #get_platform(userAgent) {
-    const platformPatterns = [
-      { pattern: /iPhone/i, platform: "ios" },
-      { pattern: /Android/i, platform: "android" },
-      { pattern: /iPad/i, platform: "ios" },
-    ];
-
-    for (const { pattern, platform } of platformPatterns) {
-      if (pattern.test(userAgent)) {
-        return platform;
-      }
-    }
-
-    return "Unknown";
   }
 
   #addSeconds(seconds) {
@@ -127,44 +100,8 @@ class Tapper {
 
   async #get_tg_web_data() {
     try {
-      await this.tg_client.start();
-      const platform = this.#get_platform(this.#get_user_agent());
-
-      const botHistory = await this.tg_client.invoke(
-        new Api.messages.GetHistory({
-          peer: await this.tg_client.getInputEntity(app.bot),
-          limit: 1,
-        })
-      );
-
-      if (botHistory.messages.length < 1) {
-        await this.tg_client.invoke(
-          new Api.messages.SendMessage({
-            peer: await this.tg_client.getInputEntity(app.peer),
-            message: "/start r_1167045062",
-            noWebpage: true,
-            noforwards: true,
-            silent: true,
-          })
-        );
-      }
-      const result = await this.tg_client.invoke(
-        new Api.messages.RequestWebView({
-          peer: await this.tg_client.getInputEntity(app.peer),
-          bot: await this.tg_client.getInputEntity(app.bot),
-          platform,
-          from_bot_menu: false,
-          url: app.webviewUrl,
-        })
-      );
-
-      const authUrl = result.url;
-      const tgWebData = authUrl.split("#", 2)[1];
-      const data = parser.toJson(
-        decodeURIComponent(this.#clean_tg_web_data(tgWebData))
-      );
       const jsonData = {
-        initData: `${parser.toQueryString(data)}`,
+        initData: `${this.query_id}`,
         hash: null,
       };
       return jsonData;
@@ -423,4 +360,4 @@ class Tapper {
     }
   }
 }
-module.exports = Tapper;
+module.exports = NonSessionTapper;

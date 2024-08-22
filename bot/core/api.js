@@ -1,1 +1,83 @@
-function a0_0xec76(){const _0x4fe4b7=['try_your_luck','message','apiUrl','7PhjJXV','stringify','The\x20proxy\x20server\x20at\x20','5chehFt','1343452naiNhA','2uMMwty','/rest/v1/rpc/','includes','../utils/sleep','/rest/v1/rpc/save_coins','exports','post','../config/app','data','send_taps','session_name','../utils/logger','match','\x20|\x20Error\x20while\x20<b>trying\x20your\x20luck\x20on\x20doubling\x20coins:</b>\x20','\x20|\x20Error\x20while\x20<b>upgrading\x20Boost:</b>:\x20','343731RLVkMY','response','/rest/v1/rpc/get_user_info','ENOTFOUND','getaddrinfo','\x20|\x20Error\x20while\x20<b>sending\x20taps:</b>\x20','65238fcNoeP','get_user_data','2931640kfVFSZ','error','/rest/v1/rpc/try_your_luck','upgrade_boost','1122861vgPcjf','7707290Dcvtqh','11kMxELZ','3544083vBxkBR'];a0_0xec76=function(){return _0x4fe4b7;};return a0_0xec76();}const a0_0x469e1c=a0_0x57cc;(function(_0x2a25b4,_0x27f86b){const _0x539522=a0_0x57cc,_0x3f42dc=_0x2a25b4();while(!![]){try{const _0x351fd9=-parseInt(_0x539522(0x1f1))/0x1*(-parseInt(_0x539522(0x1e2))/0x2)+-parseInt(_0x539522(0x1d6))/0x3+parseInt(_0x539522(0x1e1))/0x4+parseInt(_0x539522(0x1e0))/0x5*(-parseInt(_0x539522(0x1d0))/0x6)+parseInt(_0x539522(0x1dd))/0x7*(-parseInt(_0x539522(0x1d2))/0x8)+-parseInt(_0x539522(0x1d9))/0x9+parseInt(_0x539522(0x1d7))/0xa*(parseInt(_0x539522(0x1d8))/0xb);if(_0x351fd9===_0x27f86b)break;else _0x3f42dc['push'](_0x3f42dc['shift']());}catch(_0x1eab86){_0x3f42dc['push'](_0x3f42dc['shift']());}}}(a0_0xec76,0x4a719));const app=require(a0_0x469e1c(0x1e9)),logger=require(a0_0x469e1c(0x1ed)),sleep=require(a0_0x469e1c(0x1e5));class ApiRequest{constructor(_0x28c134){const _0x392d2f=a0_0x469e1c;this[_0x392d2f(0x1ec)]=_0x28c134;}async[a0_0x469e1c(0x1d1)](_0x5c7ee7){const _0x377d57=a0_0x469e1c;try{const _0x44af4b=await _0x5c7ee7['post'](app[_0x377d57(0x1dc)]+_0x377d57(0x1f3));return _0x44af4b[_0x377d57(0x1ea)];}catch(_0x54f5f0){const _0x411e08=/ENOTFOUND\s([^\s]+)/,_0x2f8cef=_0x54f5f0[_0x377d57(0x1db)][_0x377d57(0x1ee)](_0x411e08);logger['error'](this[_0x377d57(0x1ec)]+'\x20|\x20Error\x20while\x20getting\x20User\x20Data:\x20'+(_0x54f5f0[_0x377d57(0x1db)][_0x377d57(0x1e4)](_0x377d57(0x1f4))||_0x54f5f0['message'][_0x377d57(0x1e4)](_0x377d57(0x1ce))||_0x54f5f0[_0x377d57(0x1db)][_0x377d57(0x1e4)]('ECONNREFUSED')?_0x377d57(0x1df)+(_0x2f8cef&&_0x2f8cef[0x1]?_0x2f8cef[0x1]:'unknown\x20address')+'\x20could\x20not\x20be\x20found.\x20Please\x20check\x20the\x20proxy\x20address\x20and\x20your\x20network\x20connection':_0x54f5f0[_0x377d57(0x1db)])),await sleep(0x3);}}async[a0_0x469e1c(0x1d5)](_0x109c4b,_0x33e749,_0xd4200b){const _0x5237b4=a0_0x469e1c;try{const _0x3abed7=await _0x109c4b[_0x5237b4(0x1e8)](app['apiUrl']+_0x5237b4(0x1e3)+_0x33e749,_0xd4200b);return _0x3abed7[_0x5237b4(0x1ea)];}catch(_0x1f1b67){logger[_0x5237b4(0x1d3)](this['session_name']+_0x5237b4(0x1f0)+_0x1f1b67[_0x5237b4(0x1db)]);}}async[a0_0x469e1c(0x1eb)](_0x180788,_0x455096){const _0x2c9a81=a0_0x469e1c;try{const _0x474ad1=await _0x180788[_0x2c9a81(0x1e8)](app[_0x2c9a81(0x1dc)]+_0x2c9a81(0x1e6),JSON['stringify']({'coins':_0x455096}));return _0x474ad1[_0x2c9a81(0x1ea)];}catch(_0x582d1a){logger['error'](this[_0x2c9a81(0x1ec)]+_0x2c9a81(0x1cf)+_0x582d1a[_0x2c9a81(0x1db)]);}}async[a0_0x469e1c(0x1da)](_0x1a6f45,_0x3739bc){const _0x289ac1=a0_0x469e1c;try{const _0x305dad=await _0x1a6f45['post'](app[_0x289ac1(0x1dc)]+_0x289ac1(0x1d4),JSON[_0x289ac1(0x1de)]({'coins':_0x3739bc}));return _0x305dad[_0x289ac1(0x1ea)];}catch(_0x56282c){_0x56282c?.[_0x289ac1(0x1f2)]?.['data']?logger[_0x289ac1(0x1d3)](this['session_name']+'\x20|\x20Error\x20while\x20<b>trying\x20your\x20luck\x20on\x20doubling\x20coins:</b>\x20'+_0x56282c?.[_0x289ac1(0x1f2)]?.[_0x289ac1(0x1ea)]?.[_0x289ac1(0x1db)]):logger[_0x289ac1(0x1d3)](this[_0x289ac1(0x1ec)]+_0x289ac1(0x1ef)+_0x56282c[_0x289ac1(0x1db)]);}}}function a0_0x57cc(_0x2f6274,_0x56fd27){const _0xec76c0=a0_0xec76();return a0_0x57cc=function(_0x57cc33,_0x1ca66e){_0x57cc33=_0x57cc33-0x1ce;let _0x238cbc=_0xec76c0[_0x57cc33];return _0x238cbc;},a0_0x57cc(_0x2f6274,_0x56fd27);}module[a0_0x469e1c(0x1e7)]=ApiRequest;
+const app = require("../config/app");
+const logger = require("../utils/logger");
+const sleep = require("../utils/sleep");
+
+class ApiRequest {
+  constructor(session_name) {
+    this.session_name = session_name;
+  }
+
+  async get_user_data(http_client) {
+    try {
+      const response = await http_client.post(
+        `${app.apiUrl}/rest/v1/rpc/get_user_info`
+      );
+      return response.data;
+    } catch (error) {
+      const regex = /ENOTFOUND\s([^\s]+)/;
+      const match = error.message.match(regex);
+      logger.error(
+        `${this.session_name} | Error while getting User Data: ${
+          error.message.includes("ENOTFOUND") ||
+          error.message.includes("getaddrinfo") ||
+          error.message.includes("ECONNREFUSED")
+            ? `The proxy server at ${
+                match && match[1] ? match[1] : "unknown address"
+              } could not be found. Please check the proxy address and your network connection`
+            : error.message
+        }`
+      );
+      await sleep(3); // Sleep for 3 seconds
+    }
+  }
+
+  async upgrade_boost(http_client, boostType, data) {
+    try {
+      const response = await http_client.post(
+        `${app.apiUrl}/rest/v1/rpc/${boostType}`,
+        data
+      );
+      return response.data;
+    } catch (error) {
+      logger.error(
+        `${this.session_name} | Error while <b>upgrading Boost:</b>: ${error.message}`
+      );
+    }
+  }
+
+  async send_taps(http_client, coins) {
+    try {
+      const response = await http_client.post(
+        `${app.apiUrl}/rest/v1/rpc/save_coins`,
+        JSON.stringify({ coins })
+      );
+      return response.data;
+    } catch (error) {
+      logger.error(
+        `${this.session_name} | Error while <b>sending taps:</b> ${error.message}`
+      );
+    }
+  }
+
+  async try_your_luck(http_client, coins) {
+    try {
+      const response = await http_client.post(
+        `${app.apiUrl}/rest/v1/rpc/try_your_luck`,
+        JSON.stringify({ coins })
+      );
+      return response.data;
+    } catch (error) {
+      if (error?.response?.data) {
+        logger.error(
+          `${this.session_name} | Error while <b>trying your luck on doubling coins:</b> ${error?.response?.data?.message}`
+        );
+      } else {
+        logger.error(
+          `${this.session_name} | Error while <b>trying your luck on doubling coins:</b> ${error.message}`
+        );
+      }
+    }
+  }
+}
+
+module.exports = ApiRequest;

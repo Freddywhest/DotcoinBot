@@ -12,8 +12,11 @@
 | Multithreading                                                |    ✅     |
 | Binding a proxy to a session                                  |    ✅     |
 | Auto-purchase of items if you have coins (multitap, attempts) |    ✅     |
-| Random sleep time between clicks                              |    ✅     |
+| Use sessions/query_ids                                        |    ✅     |
+| Binding a proxy to a session/query_id                         |    ✅     |
 | Random number of clicks per request                           |    ✅     |
+
+## [How to add query id](https://github.com/Freddywhest/RockyRabbitBot/blob/main/AddQueryId.md)
 
 ## [Settings](https://github.com/FreddyWhest/DotcoinBot/blob/main/.env-example)
 
@@ -27,6 +30,7 @@
 | **SLEEP_BETWEEN_TAP**     | Delay between taps in seconds (eg. 70)                                    |
 | **USE_PROXY_FROM_FILE**   | Whether to use proxy from the `bot/config/proxies.js` file (True / False) |
 | **RANDOM_TAPS_COUNT**     | Random number of taps (eg [50, 200]). MIN=1, MAX=20000                    |
+| **USE_QUERY_ID**          | Whether to use query ids instead of sessions (True / False)               |
 
 ## Installation
 
