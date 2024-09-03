@@ -16,21 +16,24 @@
 | Binding a proxy to a session/query_id                         |    ✅     |
 | Random number of clicks per request                           |    ✅     |
 
-## [How to add query id](https://github.com/Freddywhest/RockyRabbitBot/blob/main/AddQueryId.md)
+### [How to add query id](https://github.com/Freddywhest/RockyRabbitBot/blob/main/AddQueryId.md)
 
 ## [Settings](https://github.com/FreddyWhest/DotcoinBot/blob/main/.env-example)
 
-| Settings                  | Description                                                               |
-| ------------------------- | ------------------------------------------------------------------------- |
-| **API_ID / API_HASH**     | Platform data from which to launch a Telegram session (stock - Android)   |
-| **AUTO_UPGRADE_MULTITAP** | Whether the bot should upgrade the multitap (True / False)                |
-| **MAX_MULTITAP_LEVEL**    | Maximum level of multitap (eg 5)                                          |
-| **AUTO_UPGRADE_ATTEMPTS** | Whether the bot should upgrade the daily attempts (True / False)          |
-| **MAX_ATTEMPTS**          | Maximum daily attempts (eg 11)                                            |
-| **SLEEP_BETWEEN_TAP**     | Delay between taps in seconds (eg. 70)                                    |
-| **USE_PROXY_FROM_FILE**   | Whether to use proxy from the `bot/config/proxies.js` file (True / False) |
-| **RANDOM_TAPS_COUNT**     | Random number of taps (eg [50, 200]). MIN=1, MAX=20000                    |
-| **USE_QUERY_ID**          | Whether to use query ids instead of sessions (True / False)               |
+| Settings                         | Description                                                                               |
+| -------------------------------- | ----------------------------------------------------------------------------------------- |
+| **API_ID / API_HASH**            | Platform data from which to launch a Telegram session (stock - Android)                   |
+| **AUTO_UPGRADE_MULTITAP**        | Whether the bot should upgrade the multitap (True / False)                                |
+| **MAX_MULTITAP_LEVEL**           | Maximum level of multitap (eg 5)                                                          |
+| **AUTO_UPGRADE_ATTEMPTS**        | Whether the bot should upgrade the daily attempts (True / False)                          |
+| **MAX_ATTEMPTS**                 | Maximum daily attempts (eg 11)                                                            |
+| **AUTO_CLAIM_TASKS**             | Whether the bot should claim tasks (True / False)                                         |
+| **AUTO_PLAY_SPIN_TO_EARN**       | Whether the bot should play spin to earn game (True / False)                              |
+| **MIN_DTC_TO_STOP_SPIN_TO_EARN** | The minimum amount of DTC the bot should stop `PLAY_SPIN_TO_EARN` when it reach (e.g 100) |
+| **SLEEP_BETWEEN_TAP**            | Delay between taps in seconds (eg. 70)                                                    |
+| **USE_PROXY_FROM_FILE**          | Whether to use proxy from the `bot/config/proxies.js` file (True / False)                 |
+| **RANDOM_TAPS_COUNT**            | Random number of taps (eg [50, 200]). MIN=1, MAX=20000                                    |
+| **USE_QUERY_ID**                 | Whether to use query ids instead of sessions (True / False)                               |
 
 ## Installation
 
