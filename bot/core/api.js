@@ -10,6 +10,7 @@ class ApiRequest {
 
   async get_user_data(http_client) {
     try {
+      http_client.defaults.headers["host"] = app.host;
       const response = await http_client.post(
         `${app.apiUrl}/rest/v1/rpc/get_user_info`
       );
@@ -36,6 +37,7 @@ class ApiRequest {
 
   async upgrade_boost(http_client, boostType, data) {
     try {
+      http_client.defaults.headers["host"] = app.host;
       const response = await http_client.post(
         `${app.apiUrl}/rest/v1/rpc/${boostType}`,
         data
@@ -50,6 +52,7 @@ class ApiRequest {
 
   async send_taps(http_client, coins) {
     try {
+      http_client.defaults.headers["host"] = app.host;
       const response = await http_client.post(
         `${app.apiUrl}/rest/v1/rpc/save_coins`,
         JSON.stringify({ coins })
@@ -64,6 +67,7 @@ class ApiRequest {
 
   async get_assets(http_client) {
     try {
+      http_client.defaults.headers["host"] = app.host;
       const response = await http_client.get(
         `${app.apiUrl}/rest/v1/rpc/get_assets`
       );
@@ -83,6 +87,7 @@ class ApiRequest {
 
   async spin_to_earn(http_client) {
     try {
+      http_client.defaults.headers["host"] = app.host;
       const response = await http_client.post(
         `${app.apiUrl}/rest/v1/rpc/spin_to_win`,
         JSON.stringify({})
@@ -103,6 +108,7 @@ class ApiRequest {
 
   async get_tasks(http_client, platform) {
     try {
+      http_client.defaults.headers["host"] = app.host;
       const response = await http_client.get(
         `${app.apiUrl}/rest/v1/rpc/get_filtered_tasks?platform=${platform}&locale=en&is_premium=true`
       );
@@ -126,6 +132,7 @@ class ApiRequest {
 
   async claim_task(http_client, taskId) {
     try {
+      http_client.defaults.headers["host"] = app.host;
       const response = await http_client.post(
         `${app.apiUrl}/rest/v1/rpc/complete_task`,
         JSON.stringify({ oid: taskId })
@@ -146,6 +153,7 @@ class ApiRequest {
 
   async try_your_luck(http_client, coins) {
     try {
+      http_client.defaults.headers["host"] = app.host;
       const response = await http_client.post(
         `${app.apiUrl}/rest/v1/rpc/try_your_luck`,
         JSON.stringify({ coins })
