@@ -60,6 +60,8 @@ const settings = {
     process.env.RANDOM_TAPS_COUNT && _isArray(process.env.RANDOM_TAPS_COUNT)
       ? JSON.parse(process.env.RANDOM_TAPS_COUNT)
       : [1000, 20000],
+
+  CAN_CREATE_SESSION: false,
 };
 
 module.exports = settings;
