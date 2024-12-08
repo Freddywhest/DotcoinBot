@@ -31,9 +31,15 @@
 | **AUTO_PLAY_SPIN_TO_EARN**       | Whether the bot should play spin to earn game (True / False)                              |
 | **MIN_DTC_TO_STOP_SPIN_TO_EARN** | The minimum amount of DTC the bot should stop `PLAY_SPIN_TO_EARN` when it reach (e.g 100) |
 | **SLEEP_BETWEEN_TAP**            | Delay between taps in seconds (eg. 70)                                                    |
+| **DELAY_BETWEEN_STARTING_BOT**   | Delay between starting bot in seconds (eg. [7,34])                                        |
 | **USE_PROXY_FROM_FILE**          | Whether to use proxy from the `bot/config/proxies.js` file (True / False)                 |
+| **USE_TAPS**                     | Whether to use taps from the (True / False)                                               |
 | **RANDOM_TAPS_COUNT**            | Random number of taps (eg [50, 200]). MIN=1, MAX=20000                                    |
 | **USE_QUERY_ID**                 | Whether to use query ids instead of sessions (True / False)                               |
+| **UPGRADE_INFO**                 | Show information about possible improvements to DTC Mining (True / False)                 |
+| **AUTO_UPGRADE_DTC_MINING**      | Should the bot update DTC Mining (True/ False)                                            |
+| **AUDM_SES**                     | Session names for updating DTC Mining ["Your name session-1", "Your name session-2"]      |
+| **MAX_DTC_LEVEL**                | Maximum level of DTC Mining (eg 5)                                                        |
 
 ## Installation
 
