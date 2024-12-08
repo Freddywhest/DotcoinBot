@@ -15,6 +15,7 @@ const path = require("path");
 const _isArray = require("../utils/_isArray");
 const { HttpsProxyAgent } = require("https-proxy-agent");
 const FdyTmp = require("fdy-tmp");
+const moment = require("moment");
 
 class Tapper {
   constructor(tg_client) {
@@ -383,7 +384,44 @@ class Tapper {
         }
         http_client.defaults.headers["x-telegram-user-Id"] = profile_data?.id;
 
-        if (settings.AUTO_CLAIM_TASKS) {
+        const dtc_up_price = profile_data?.dtc_level !== undefined
+			? 50000 * Math.pow(2, profile_data.dtc_level)
+			: null;
+
+		if (settings.UPGRADE_INFO &&
+			profile_data?.dtc_level >= 0 &&
+			dtc_up_price != null &&
+			profile_data?.balance >= dtc_up_price &&
+			moment().diff(moment(profile_data.dtc_level_updated_at, "YYYY-MM-DD"), 'days') >= 2
+			) {
+			logger.info(
+				`<ye>[${this.bot_name}]</ye> | ${this.session_name} | <pi>ru: Можно прокачать DTC Mining до ${profile_data.dtc_level + 1} LVL / en: It is possible to improve DTC Mining to ${profile_data.dtc_level + 1} LVL</pi>`
+			);
+		}
+		
+		if (
+			settings.AUTO_UPGRADE_DTC_MINING &&
+			!_.isEmpty(settings.AUDM_SES) &&
+			profile_data?.dtc_level < settings.MAX_DTC_LEVEL &&
+			dtc_up_price != null &&
+			profile_data?.balance >= dtc_up_price &&
+			profile_data?.dtc_level_updated_at &&
+			moment().diff(moment(profile_data.dtc_level_updated_at, "YYYY-MM-DD"), 'days') >= 2 &&
+			_.includes(settings.AUDM_SES, this.session_name)
+		) {
+			const upgrade_mining_response = await this.api.upgrade_dtc_mining(http_client);
+			
+			profile_data = await this.api.get_user_data(http_client);
+            if (upgrade_mining_response?.success) {
+				logger.info(
+					`<ye>[${this.bot_name}]</ye> | ${this.session_name} | <gr>⬆️</gr> DTC Mining upgraded to <lb>${profile_data?.dtc_level}</lb>`
+				);
+            }
+		}
+		
+		await sleep(6);
+		
+		if (settings.AUTO_CLAIM_TASKS) {
           const tasks_data = await this.api.get_tasks(
             http_client,
             this.#get_platform()
@@ -406,6 +444,7 @@ class Tapper {
 
         //Sending Taps
         while (
+		  settings.USE_TAPS &&
           profile_data?.daily_attempts > 0 &&
           !this.#compareWithCurrentTime(sleep_taps)
         ) {
@@ -451,9 +490,9 @@ class Tapper {
           profile_data?.daily_attempts < 1
         ) {
           sleep_taps = this.#addSeconds(1200);
-          logger.info(
-            `<ye>[${this.bot_name}]</ye> | ${this.session_name} | ⏳ Not enough daily attempts. Sleeping for 20 minutes | 💰 Balance: <la>${profile_data?.balance}</la>`
-          );
+		  logger.info(
+			  `<ye>[${this.bot_name}]</ye> | ${this.session_name} | ⏳ Not enough daily attempts. Sleeping for 20 minutes | 💰 Balance: <la>${profile_data?.balance}</la>`
+            );
         }
 
         await sleep(5);
@@ -614,7 +653,7 @@ class Tapper {
             ran_sleep = _.random(450, 800);
           }
         } else if (_.isInteger(settings.SLEEP_BETWEEN_TAP)) {
-          const ran_add = _.random(20, 50);
+          const ran_add = _.random(15, 30);
           ran_sleep = settings.SLEEP_BETWEEN_TAP + ran_add;
         } else {
           ran_sleep = _.random(450, 800);

@@ -62,6 +62,26 @@ class ApiRequest {
     }
   }
 
+  async upgrade_dtc_mining(http_client) {
+    try {
+      http_client.defaults.headers["host"] = app.host;
+      const response = await http_client.post(
+        `${app.apiUrl}/functions/v1/upgradeMiner/web3`
+      );
+      return response.data;
+    } catch (error) {
+	  if (error?.response?.data) {
+		logger.error(
+			`<ye>[${this.bot_name}]</ye> | ${this.session_name} | Error while <b>upgrading DTC Mining:</b>: ${error?.response?.data?.message}`
+        );
+      } else {
+            logger.error(
+				`<ye>[${this.bot_name}]</ye> | ${this.session_name} | Error while <b>upgrading DTC Mining:</b>: ${error.message}`
+			);
+      }
+    }
+  }
+  
   async upgrade_boost(http_client, boostType, data) {
     try {
       http_client.defaults.headers["host"] = app.host;
